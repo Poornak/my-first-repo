@@ -1,5 +1,4 @@
 #!/bin/bash
-#file: guessinggame.sh
 read -p "enter the total number of files present in current directory:" noOfFiles
 
 function correctGuess {
