@@ -12,13 +12,10 @@ do
 if [ $noOfFiles -gt $b ]
 then
 echo "Sorry wrong answer,gussed higher than the actual number of files"
-#a=int(input("enter a value"))
 read -p "Guess again:" noOfFiles
 elif [ $noOfFiles -lt $b ]
 then
-#print("sorry wrong answer,guesses lower than the actual number of files")
 echo "Sorry wrong answer,gussed lower than the actual number of files"
-#a=int(input("enter a value"))
 read -p "Guess again:" noOfFiles
 fi
 done
