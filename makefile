@@ -12,6 +12,6 @@ make_readme:
 	touch $(readme)
 	echo "Title : $(script_file)" >> $(readme)
 	echo "Executed on : $$(date)" >> $(readme)
-	echo "No of lines in  $(script_file) is $$(wc $(script_file) -l)" >> $(readme)
+	echo "No of lines and file name is: $$(wc $(script_file) -l)" >> $(readme)
 	
 	
