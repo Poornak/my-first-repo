@@ -1,26 +1,37 @@
 #!/bin/bash
-read -p "enter the total number of files present in current directory:" noOfFiles
-
-function correctGuess {
-echo "Congrats! You guessed it correct!"
-}
-b=$(ls -1a|wc -l)
-
-while [ $noOfFiles != $b ]
+function Guess {
+reg='^[0-9]*$'
+read -p 'enter num: ' num
+#echo "enter number:" num
+until [[ $num =~ $reg ]]
 do
-if [ $noOfFiles -gt $b ]
-then
-echo "Sorry wrong answer,gussed higher than the actual number of files"
-read -p "Guess again:" noOfFiles
-elif [ $noOfFiles -lt $b ]
-then
-echo "Sorry wrong answer,gussed lower than the actual number of files"
-read -p "Guess again:" noOfFiles
-fi
+    echo "Invalid Input!!"
+    echo
+    read -p 'enter num: ' num
 done
-if [ $noOfFiles == $b ]
+
+
+}
+Guess
+echo "You entered $num"
+a=$(ls -1a|wc -l)
+c=2
+b=`expr $a - $c`
+
+
+while [[ $num != $b ]]
+do
+    if [[ $num -gt $b ]]
+    then
+        echo "sorry wrong answer,gussed higher than the actual number of files"
+        Guess
+    elif [[ $num -lt $b ]]
+    then
+        echo "sorry wrong answer,gussed lower than the actual number of files"
+        Guess
+    fi
+done
+if [[ $num == $b ]]
 then
-correctGuess
+    echo "Congrats! You guessed it correct!"
 fi
-
-
